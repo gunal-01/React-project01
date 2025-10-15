@@ -1,20 +1,29 @@
 import { useState } from 'react'
 
 function App() {
-  const [variableName, setVariableName] = useState(initialValue);
+  const [count, setCount] = useState(0);
 
   {/*
-    VariableName --> current value of the state.
-    setVariableName --> function to update that value.
-    initialValue --> the default value you want to start with.    
+    Count:VariableName --> current value of the state.
+    setCount:setVariableName --> function to update that value.
+    0:initialValue --> the default value you want to start with.    
     */}
+
+    const handleIncrement = () => {
+      setCount(count + 1);
+    };
+
+    const handleDecrement = () => {
+      setCount(count - 1);
+    }
+
   return (
     <>
-    <button>-</button>
-    <span>0</span>
-    <button>+</button>
+    <button onClick={handleDecrement}>-</button>
+    <span>{count}</span>
+    <button onClick={handleIncrement}>+</button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
